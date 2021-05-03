@@ -5,6 +5,9 @@ public class Persona {
 
     int pisoInicial;
     int pisoObjetivo;
+
+    final int PISOMAX = 3;
+    final int PISOMIN = 1;
     
     //Determina si la persona se encuentra fuera = false o dentro = true del ascensor.
     boolean dentroAscensor = false;
@@ -13,16 +16,18 @@ public class Persona {
         this.pisoInicial = pisoInicial;
         this.pisoObjetivo = pisoObjetivo;
     }
-    public Persona(int pisoInicial) {
+    public Persona(int pisoInicial) throws Exception{
         //Asignacion de variables
         this.pisoInicial = pisoInicial;
         //Asiganación de un piso diferente
         int pisoOb = pisoInicial;
         while(pisoOb == pisoInicial){
             Random rand = new Random();
-            pisoOb = rand.nextInt(3) + 1;
+            pisoOb = rand.nextInt(PISOMAX) + 1;
         }
-        
+        if(pisoOb > PISOMAX || pisoOb < PISOMIN){
+            throw new Exception("Piso Fuera del Edificio");
+        }
         this.pisoObjetivo = pisoOb;
     }
     
@@ -49,6 +54,5 @@ public class Persona {
     
 }
 /**
- *
  * @author juanca - martin
  */

@@ -12,6 +12,9 @@ public class Ascensor {
     //Botón que indica el piso objetivo donde quiere ir el usuario.
     int pisoObjetivo;
 
+    final int PISOMAX = 3;
+    final int PISOMIN = 1;
+
     public boolean verificarEstadoInicial(){
         if(currentPiso == 1 && puerta == false){
             return true;
@@ -23,13 +26,13 @@ public class Ascensor {
         return alternancia;
     }
 
-    public Persona crearPersona(){
+    public Persona crearPersona() throws Exception{
         Random rand = new Random();
-        int n = rand.nextInt(3) + 1;
+        int n = rand.nextInt(PISOMAX) + 1;
         return new Persona(n);
     }
 }
+
 /**
- *
  * @author juanca - martin
  */

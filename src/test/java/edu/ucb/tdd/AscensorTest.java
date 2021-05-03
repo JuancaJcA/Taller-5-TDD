@@ -3,18 +3,23 @@ package edu.ucb.tdd;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 public class AscensorTest {
     
     private Ascensor ascensor;
-
+    
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+    
     @Before
     public void before(){
         ascensor = new Ascensor();
     }
 
     @Test
-    public void verificarPuertasCerradasYPisoInicial(){
+    public void verificarPuertasCerradasYPisoInicial() throws Exception{
         // Preparación de la prueba.
         ascensor = new Ascensor();
         // Lógica de la prueba.
@@ -24,7 +29,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void verificarEstadoDeAscensorSubidaBajada(){
+    public void verificarEstadoDeAscensorSubidaBajada() throws Exception{
         // Preparación de la prueba
         ascensor = new Ascensor();
         // Lógica de la prueba
@@ -34,7 +39,7 @@ public class AscensorTest {
     }
     
     @Test
-    public void crearPersonaColocarPisoYPisoObjetivo(){
+    public void crearPersonaColocarPisoYPisoObjetivo() throws Exception{
         // Preparación de la prueba
         ascensor = new Ascensor();
         // Lógica de la prueba
@@ -46,7 +51,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void verificarQuePisoObjetivoNoSeaPisoInicial(){
+    public void verificarQuePisoObjetivoNoSeaPisoInicial() throws Exception{
         // Preparación de la prueba
         ascensor = new Ascensor();
         // Lógica de la prueba
