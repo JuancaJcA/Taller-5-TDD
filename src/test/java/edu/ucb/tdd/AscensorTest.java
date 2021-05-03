@@ -45,6 +45,16 @@ public class AscensorTest {
         assertNotNull(persona);
     }
 
+    @Test
+    public void verificarQuePisoObjetivoNoSeaPisoInicial(){
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        // Lógica de la prueba
+        Persona persona = ascensor.crearPersona();
+        // Verificación o Assert.
+        // Se verifica que los pisos no coincidan
+        assertNotSame(persona.pisoInicial, persona.pisoObjetivo);
+    }
 }
 /**
  * @author juanca - martin

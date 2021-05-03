@@ -1,5 +1,5 @@
 package edu.ucb.tdd;
-
+import java.util.Random;
 
 public class Persona {
 
@@ -12,6 +12,18 @@ public class Persona {
     public Persona(int pisoInicial, int pisoObjetivo) {
         this.pisoInicial = pisoInicial;
         this.pisoObjetivo = pisoObjetivo;
+    }
+    public Persona(int pisoInicial) {
+        //Asignacion de variables
+        this.pisoInicial = pisoInicial;
+        //Asiganación de un piso diferente
+        int pisoOb = pisoInicial;
+        while(pisoOb == pisoInicial){
+            Random rand = new Random();
+            pisoOb = rand.nextInt(3) + 1;
+        }
+        
+        this.pisoObjetivo = pisoOb;
     }
     
     public int getPisoInicial() {

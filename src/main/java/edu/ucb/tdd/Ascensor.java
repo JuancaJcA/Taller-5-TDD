@@ -10,7 +10,7 @@ public class Ascensor {
     //Alternancia del ascensor subida = true, bajada = false.
     boolean alternancia = false;
     //Botón que indica el piso objetivo donde quiere ir el usuario.
-    int pisoObjetivo = false;
+    int pisoObjetivo;
 
     public boolean verificarEstadoInicial(){
         if(currentPiso == 1 && puerta == false){
@@ -24,8 +24,9 @@ public class Ascensor {
     }
 
     public Persona crearPersona(){
+        Random rand = new Random();
         int n = rand.nextInt(3) + 1;
-        return new Persona(n,3);
+        return new Persona(n);
     }
 }
 /**

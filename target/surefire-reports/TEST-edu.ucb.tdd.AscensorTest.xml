@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="edu.ucb.tdd.AscensorTest" time="0.04" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="edu.ucb.tdd.AscensorTest" time="0.01" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -62,7 +62,8 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="edu.ucb.tdd.AscensorTest" name="crearPersonaColocarPisoYPisoObjetivo" time="0.039"/>
-  <testcase classname="edu.ucb.tdd.AscensorTest" name="verificarEstadoDeAscensorSubidaBajada" time="0.001"/>
+  <testcase classname="edu.ucb.tdd.AscensorTest" name="verificarQuePisoObjetivoNoSeaPisoInicial" time="0.005"/>
+  <testcase classname="edu.ucb.tdd.AscensorTest" name="crearPersonaColocarPisoYPisoObjetivo" time="0.005"/>
+  <testcase classname="edu.ucb.tdd.AscensorTest" name="verificarEstadoDeAscensorSubidaBajada" time="0"/>
   <testcase classname="edu.ucb.tdd.AscensorTest" name="verificarPuertasCerradasYPisoInicial" time="0"/>
 </testsuite>
