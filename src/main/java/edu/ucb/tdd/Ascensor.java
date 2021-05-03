@@ -1,4 +1,5 @@
 package edu.ucb.tdd;
+import java.util.Random;
 
 public class Ascensor {
     int currentPiso = 1;
@@ -22,6 +23,10 @@ public class Ascensor {
         return alternancia;
     }
 
+    public Persona crearPersona(){
+        int n = rand.nextInt(3) + 1;
+        return new Persona(n,3);
+    }
 }
 /**
  *

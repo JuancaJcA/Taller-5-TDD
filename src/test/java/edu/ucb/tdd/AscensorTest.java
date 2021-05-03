@@ -28,11 +28,23 @@ public class AscensorTest {
         // Preparación de la prueba
         ascensor = new Ascensor();
         // Lógica de la prueba
-        boolean estadoSubidaBajada = ascensor.verificarEstadoSubidaBajada();
+        boolean estadoSubidaBajada = ascensor.alternancia();
         // Verificación o Assert.
         assertEquals(false, estadoSubidaBajada);
     }
     
+    @Test
+    public void crearPersonaColocarPisoYPisoObjetivo(){
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        // Lógica de la prueba
+        Persona persona = ascensor.crearPersona();
+        // Verificación o Assert.
+        // Ser verifica que todos los datos de una persona son diferentes a null
+        // Para poder proseguir con su transporte
+        assertNotNull(persona);
+    }
+
 }
 /**
  * @author juanca - martin
