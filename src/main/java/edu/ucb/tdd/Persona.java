@@ -17,9 +17,9 @@ public class Persona {
         this.pisoObjetivo = pisoObjetivo;
     }
     public Persona(int pisoInicial) throws Exception{
-        //Asignacion de variables
+        //Asignación de variables.
         this.pisoInicial = pisoInicial;
-        //Asiganación de un piso diferente
+        //Asignación de un piso diferente.
         int pisoOb = pisoInicial;
         while(pisoOb == pisoInicial){
             Random rand = new Random();
@@ -29,6 +29,10 @@ public class Persona {
             throw new Exception("Piso Fuera del Edificio");
         }
         this.pisoObjetivo = pisoOb;
+    }
+
+    public void llamarAscensor(Ascensor ascensor){
+        ascensor.recogerPersona(pisoInicial, pisoObjetivo);
     }
     
     public int getPisoInicial() {
@@ -45,11 +49,6 @@ public class Persona {
 
     public void setPisoObjetivo(int pisoObjetivo) {
         this.pisoObjetivo = pisoObjetivo;
-    }
-
-    @Override
-    public String toString() {
-        return "Persona{" + "pisoInicial=" + pisoInicial + ", pisoObjetivo=" + pisoObjetivo + ", dentroAscensor=" + dentroAscensor + '}';
     }
     
 }

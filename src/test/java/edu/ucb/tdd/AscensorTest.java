@@ -1,7 +1,7 @@
 package edu.ucb.tdd;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
@@ -58,9 +58,38 @@ public class AscensorTest {
         Persona persona = ascensor.crearPersona();
         // Verificación o Assert.
         // Se verifica que los pisos no coincidan
-        assertNotSame(persona.pisoInicial, persona.pisoObjetivo);
+        assertNotSame(persona.getPisoInicial(), persona.getPisoObjetivo());
+    }
+
+    @Test
+    public void verificarMovimientoDelAscensorYPuertaAbierta() throws Exception{
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        Persona persona = ascensor.crearPersona();
+        // Lógica de la prueba
+        persona.llamarAscensor(ascensor);
+        // Verificación o Assert.
+        // Se verifica que el ascensor se movío donde se encuentra la persona.
+        assertEquals(ascensor.getCurrentPiso(), persona.getPisoInicial());
+        assertEquals(true, ascensor.getPuerta());
+    }
+
+    @Test
+    public void verificarPisoObjetivoAscensorConPisoObjetivoPersona() throws Exception{
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        Persona persona = ascensor.crearPersona();
+        // Lógica de la prueba
+        persona.llamarAscensor(ascensor);
+        // Verificación o Assert.
+        // Se verifica que el piso objetivo del ascensor es el mismo que de la persona
+        assertEquals(ascensor.getPisoObjetivo(), persona.getPisoObjetivo());
+
+        //Cerrar puerta de ascensor
+        ascensor.setPuerta(false);
     }
 }
+
 /**
  * @author juanca - martin
  */
