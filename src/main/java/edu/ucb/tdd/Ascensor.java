@@ -5,12 +5,12 @@ public class Ascensor {
     private int currentPiso = 1;
     //Puerta abierta = true, puerta cerrada = false.
     private boolean puerta = false;
-    //Botón apretado = true, botón sin apretar = false.
-    private boolean botonLlamada = false;
     //Alternancia del ascensor subida = true, bajada = false.
     private boolean alternancia = false;
     //Botón que indica el piso objetivo donde quiere ir el usuario.
     private int pisoObjetivo;
+    //Determina si la persona se encuentra fuera = false o dentro = true del ascensor.
+    private boolean personaAdentro = false;
 
     private final int PISOMAX = 3;
     private final int PISOMIN = 1;
@@ -38,6 +38,14 @@ public class Ascensor {
     public void setPisoObjetivo(int pisoObjetivo) {
         this.pisoObjetivo = pisoObjetivo;
     }
+
+    public boolean getPersonaAdentro() {
+        return personaAdentro;
+    }
+
+    public void setPersonaAdentro(boolean personaAdentro) {
+        this.personaAdentro = personaAdentro;
+    }
     
     public boolean verificarEstadoInicial(){
         if(currentPiso == 1 && puerta == false){
@@ -63,7 +71,18 @@ public class Ascensor {
         if(pisoActualPersona == currentPiso){
             setPisoObjetivo(pisoFinal);
             setPuerta(true);
+            setPersonaAdentro(true);
         }
+    }
+
+    public void llevarPersona(){
+        currentPiso = pisoObjetivo;
+        //Se abre la puerta para que salga la persona
+        setPuerta(true);
+        //Se indica que no hay ninguna persona dentro del ascensor
+        setPersonaAdentro(false);
+        //Se cierra la puerta
+        setPuerta(false);
     }
 }
 

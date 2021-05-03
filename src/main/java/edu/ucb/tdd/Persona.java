@@ -3,14 +3,11 @@ import java.util.Random;
 
 public class Persona {
 
-    int pisoInicial;
-    int pisoObjetivo;
+    private int pisoInicial;
+    private int pisoObjetivo;
 
-    final int PISOMAX = 3;
-    final int PISOMIN = 1;
-    
-    //Determina si la persona se encuentra fuera = false o dentro = true del ascensor.
-    boolean dentroAscensor = false;
+    private final int PISOMAX = 3;
+    private final int PISOMIN = 1;
 
     public Persona(int pisoInicial, int pisoObjetivo) {
         this.pisoInicial = pisoInicial;

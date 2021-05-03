@@ -85,9 +85,30 @@ public class AscensorTest {
         // Se verifica que el piso objetivo del ascensor es el mismo que de la persona
         assertEquals(ascensor.getPisoObjetivo(), persona.getPisoObjetivo());
 
-        //Cerrar puerta de ascensor
+        //Cerrar puerta del ascensor.
         ascensor.setPuerta(false);
     }
+
+    @Test
+    public void llevarPersonaAPersonaB() throws Exception{
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        Persona personaA = ascensor.crearPersona();
+        Persona personaB = ascensor.crearPersona();
+        // Lógica de la prueba
+        //Persona A
+        personaA.llamarAscensor(ascensor);
+        ascensor.setPuerta(false);
+        ascensor.llevarPersona();
+        assertEquals(ascensor.getCurrentPiso(), personaA.getPisoObjetivo());
+        //Persona B
+        personaB.llamarAscensor(ascensor);
+        ascensor.setPuerta(false);
+        ascensor.llevarPersona();
+        assertEquals(ascensor.getCurrentPiso(), personaB.getPisoObjetivo());
+    }
+
+    
 }
 
 /**
