@@ -14,13 +14,23 @@ public class AscensorTest {
     }
 
     @Test
-    public void verificarPuertasCerradas(){
+    public void verificarPuertasCerradasYPisoInicial(){
+        // Preparación de la prueba.
+        ascensor = new Ascensor();
+        // Lógica de la prueba.
+        boolean estadoInicial = ascensor.verificarEstadoInicial();
+        // Verificación o Assert.
+        assertEquals(true, estadoInicial);
+    }
+
+    @Test
+    public void verificarEstadoDeAscensorSubidaBajada(){
         // Preparación de la prueba
         ascensor = new Ascensor();
         // Lógica de la prueba
-        boolean estadoInicial = ascensor.verificarEstadoInicial();
-        // Verifiación o Assert
-        assertEquals(true, estadoPuerta);
+        boolean estadoSubidaBajada = ascensor.verificarEstadoSubidaBajada();
+        // Verificación o Assert.
+        assertEquals(false, estadoSubidaBajada);
     }
     
 }
