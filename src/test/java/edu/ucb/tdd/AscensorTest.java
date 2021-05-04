@@ -62,7 +62,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void verificarMovimientoDelAscensorYPuertaAbierta() throws Exception{
+    public void verificarMovimientoDelAscensorYPersonaAdentro() throws Exception{
         // Preparación de la prueba
         ascensor = new Ascensor();
         Persona persona = ascensor.crearPersona();
@@ -71,7 +71,7 @@ public class AscensorTest {
         // Verificación o Assert.
         // Se verifica que el ascensor se movío donde se encuentra la persona.
         assertEquals(ascensor.getCurrentPiso(), persona.getPisoInicial());
-        assertEquals(true, ascensor.getPuerta());
+        assertEquals(true, ascensor.getPersonaAdentro());
     }
 
     @Test
@@ -98,17 +98,23 @@ public class AscensorTest {
         // Lógica de la prueba
         //Persona A
         personaA.llamarAscensor(ascensor);
-        ascensor.setPuerta(false);
         ascensor.llevarPersona();
         assertEquals(ascensor.getCurrentPiso(), personaA.getPisoObjetivo());
         //Persona B
         personaB.llamarAscensor(ascensor);
-        ascensor.setPuerta(false);
         ascensor.llevarPersona();
         assertEquals(ascensor.getCurrentPiso(), personaB.getPisoObjetivo());
     }
 
-    
+    @Test
+    public void verificarPuertaCerrada() throws Exception{
+        // Preparación de la prueba
+        ascensor = new Ascensor();
+        Persona persona = ascensor.crearPersona();
+        // Lógica de la prueba
+        persona.llamarAscensor(ascensor);
+        assertEquals(false, ascensor.getPuerta());
+    }
 }
 
 /**

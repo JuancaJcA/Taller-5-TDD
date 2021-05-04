@@ -72,10 +72,17 @@ public class Ascensor {
             setPisoObjetivo(pisoFinal);
             setPuerta(true);
             setPersonaAdentro(true);
+            setPuerta(false);
         }
     }
 
-    public void llevarPersona(){
+    public void llevarPersona() throws Exception{
+        if (puerta){
+            setPuerta(false);
+        }
+        if(puerta){
+            throw new Exception("Puerta no está cerrada");
+        }
         currentPiso = pisoObjetivo;
         //Se abre la puerta para que salga la persona
         setPuerta(true);
